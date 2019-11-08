@@ -15,6 +15,8 @@
 - (void)searchForPeopleWithSearchTerm:(NSString *)searchTerm
 completion:(void (^)(NSArray *people, NSError *error))completion;
 
+@property NSMutableArray *artists;
+
 @end
 
 

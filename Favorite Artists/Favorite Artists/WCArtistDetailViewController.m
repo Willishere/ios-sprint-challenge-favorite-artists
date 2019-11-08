@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *artistHistoryTextField;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property WCArtistController *controller;
+
 
 
 @end
@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.searchBar setDelegate:self];
+    [self updateViews];
     // Do any additional setup after loading the view.
 }
 
@@ -41,9 +41,13 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             // set the people
-            self.artists = artists;
+            if (artists[0] != nil){
+                
+            self.artist = [[WCArtist alloc] initwithDictionary:artists[0]];
             // update the UI
-
+            [self updateViews];
+            }
+            
         });
         NSLog(@"Search result: %@", artists);
         
@@ -58,16 +62,27 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)saveButtonPressed:(id)sender {
-    NSString *title = self.artistNameLabel.text;
-    NSString *body = self.artistHistoryTextField.text;
-    NSString *year = self.albumYear.text;
+- (void)updateViews{
+    if(self.artist){
+    [self.artistNameLabel setText:_artist.strArtist];
+    [self.artistNameLabel setHidden:false];
+    [self.artistHistoryTextField setText:_artist.strDescriptionEN];
+    [self.artistHistoryTextField setHidden:false];
+    [self.albumYear setText:_artist.intYearReleased];
+    [self.albumYear setHidden:false];
+    [_searchBar setHidden:true];
     
-//    if (!self.) {
-//        [self.documentController createDocWithTitle:title body:body];
-//    } else {
-//        [self.documentController updateDoc:self.document title:title body:body];
-//    }
+    }else {
+    [_searchBar setHidden:false];
+    [self.artistNameLabel setHidden:true];
+    [self.artistHistoryTextField setHidden:true];
+    [self.albumYear setHidden:true];
+}
+    
+}
+
+- (IBAction)saveButtonPressed:(id)sender {
+    [self.controller.artists addObject:_artist];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -13,7 +13,6 @@
 
 @interface WCArtistTableViewController ()
 @property WCArtistController *controller;
-@property NSArray *artists;
 
 @end
 
@@ -31,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,20 +38,27 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-#pragma mark - Table view data source
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
+    [self.tableView reloadData];
+}
 
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.artists.count;
+    return self.controller.artists.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"artistCell" forIndexPath:indexPath];
     
-    WCArtist *artist = self.artists[indexPath.row];
+    WCArtist *artist = self.controller.artists[indexPath.row];
     
     cell.textLabel.text = artist.strArtist;
     cell.detailTextLabel.text = artist.intYearReleased;
@@ -66,12 +73,16 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"addSegue"]) {
-       WCArtistDetailViewController *destinationVC = segue.destinationViewController;
+    WCArtistDetailViewController *destinationVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"addSegue"]){
         destinationVC.controller = self.controller;
-        destinationVC.artists = self.artists;
         
+    }else if ([segue.identifier isEqualToString:@"showSegue"]){
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        destinationVC.artist = self.controller.artists[indexPath.row];
+        destinationVC.controller = self.controller;
     }
 }
 

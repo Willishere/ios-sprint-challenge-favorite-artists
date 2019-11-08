@@ -10,14 +10,14 @@
 #import "WCArtist.h"
 
 @implementation WCArtistController
-static NSString *const baseURLString = @"https://theaudiodb.com/api/v1/json/1/searchalbum.php?s=";
+static NSString *const baseURLString = @"https://theaudiodb.com/api/v1/json/1/searchalbum.php";
 
 - (void)searchForPeopleWithSearchTerm:(NSString *)searchTerm
                            completion:(void (^)(NSArray *people, NSError *error))completion{
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
     
     NSURLComponents *components = [NSURLComponents componentsWithURL:baseURL resolvingAgainstBaseURL:YES];
-        NSURLQueryItem *searchItem = [NSURLQueryItem queryItemWithName:@"search" value:searchTerm];
+        NSURLQueryItem *searchItem = [NSURLQueryItem queryItemWithName:@"s" value:searchTerm];
         [components setQueryItems: @[searchItem]];
         
         NSURL *url = [components URL];
@@ -56,15 +56,11 @@ static NSString *const baseURLString = @"https://theaudiodb.com/api/v1/json/1/se
             
             // Loop through the data and transform from a dictionary to LSIPerson
             
-            NSArray *albums = json[@"album"];                        // let results = []
-            NSMutableArray *people = [[NSMutableArray alloc] init];        // var people = []
+            NSArray *albums = json[@"album"];                        // let results = []       // var people = []
             
             // NSArray of NSDictionary
-            for (NSDictionary *dictionary in albums) {
-                WCArtist *artist = [[WCArtist alloc] initwithDictionary:dictionary];
-                [people addObject:artist];  // people.append(person)
-            }
-            completion(people, nil);
+         
+            completion(albums, nil);
             
         }];
         [task resume];
@@ -72,6 +68,15 @@ static NSString *const baseURLString = @"https://theaudiodb.com/api/v1/json/1/se
         
         
         
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _artists = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
 
 

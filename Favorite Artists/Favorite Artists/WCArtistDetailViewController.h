@@ -10,7 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WCArtist;
+@class WCArtistController;
+
 @interface WCArtistDetailViewController : UIViewController
+@property WCArtistController *controller;
+@property WCArtist *artist;
 
 @end
 

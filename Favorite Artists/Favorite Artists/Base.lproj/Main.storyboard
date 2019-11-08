@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="wuN-sw-q0e" detailTextLabel="Qgy-Lg-wSj" style="IBUITableViewCellStyleSubtitle" id="tMp-Uk-A36">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistCell" textLabel="wuN-sw-q0e" detailTextLabel="Qgy-Lg-wSj" style="IBUITableViewCellStyleSubtitle" id="tMp-Uk-A36">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tMp-Uk-A36" id="5qF-Nz-yXh">
@@ -39,6 +39,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="7zF-HO-1TU" kind="show" identifier="showSegue" id="z3f-c2-mz9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -69,15 +72,12 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-oY-9CU">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7zF-HO-1TU" id="SYh-1c-REQ"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooa-0i-4AI">
                                 <rect key="frame" x="20" y="172" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgI-dJ-uo5">
-                                <rect key="frame" x="20" y="201" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,17 +91,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Z-nJ-jAm">
+                                <rect key="frame" x="20" y="218" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="pgI-dJ-uo5" firstAttribute="leading" secondItem="YKr-Ko-nVL" secondAttribute="leading" constant="20" id="3nj-DX-f0u"/>
                             <constraint firstItem="ooa-0i-4AI" firstAttribute="leading" secondItem="YKr-Ko-nVL" secondAttribute="leading" constant="20" id="7xs-EY-l0m"/>
                             <constraint firstItem="PAf-oY-9CU" firstAttribute="top" secondItem="YKr-Ko-nVL" secondAttribute="top" id="D31-NA-rQi"/>
                             <constraint firstItem="PAf-oY-9CU" firstAttribute="centerX" secondItem="ucN-Xt-4re" secondAttribute="centerX" id="DKU-nz-bCK"/>
                             <constraint firstItem="PAf-oY-9CU" firstAttribute="trailing" secondItem="YKr-Ko-nVL" secondAttribute="trailing" id="HMn-bU-nY0"/>
                             <constraint firstItem="ooa-0i-4AI" firstAttribute="top" secondItem="PAf-oY-9CU" secondAttribute="bottom" constant="28" id="ROl-Qi-CZp"/>
-                            <constraint firstItem="pgI-dJ-uo5" firstAttribute="top" secondItem="ooa-0i-4AI" secondAttribute="bottom" constant="8" id="hDK-gg-nZN"/>
-                            <constraint firstItem="YKr-Ko-nVL" firstAttribute="trailing" secondItem="pgI-dJ-uo5" secondAttribute="trailing" constant="20" id="iWz-Q4-TgX"/>
                             <constraint firstItem="YKr-Ko-nVL" firstAttribute="trailing" secondItem="ooa-0i-4AI" secondAttribute="trailing" constant="20" id="mjv-aO-mM0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YKr-Ko-nVL"/>
@@ -114,7 +118,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="albumYear" destination="pgI-dJ-uo5" id="a3V-kX-UTz"/>
+                        <outlet property="albumYear" destination="Z2Z-nJ-jAm" id="ILK-HP-vYW"/>
                         <outlet property="artistHistoryTextField" destination="5Cp-cw-NzC" id="qfO-Dq-hf0"/>
                         <outlet property="artistNameLabel" destination="ooa-0i-4AI" id="hZi-08-bTE"/>
                         <outlet property="searchBar" destination="PAf-oY-9CU" id="kOY-EX-8by"/>
@@ -143,4 +147,7 @@
             <point key="canvasLocation" x="118.84057971014494" y="-89.0625"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="z3f-c2-mz9"/>
+    </inferredMetricsTieBreakers>
 </document>
