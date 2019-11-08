@@ -6,22 +6,48 @@
 //  Copyright © 2019 William Chen. All rights reserved.
 //
 
-#import "ArtistDetailViewController.h"
+#import "WCArtistDetailViewController.h"
+#import "WCArtistController.h"
+#import "WCArtist.h"
 
-@interface ArtistDetailViewController ()
+@interface WCArtistDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumYear;
 @property (weak, nonatomic) IBOutlet UITextView *artistHistoryTextField;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property WCArtistController *controller;
+@property NSArray *artists;
 
 @end
 
-@implementation ArtistDetailViewController
+@implementation WCArtistDetailViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.searchBar setDelegate:self];
     // Do any additional setup after loading the view.
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [self.controller searchForPeopleWithSearchTerm:searchBar.text completion:^(NSArray *artists, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // set the people
+            self.artists = artists;
+            // update the UI
+
+        });
+        NSLog(@"Search result: %@", artists);
+        
+    }];
+}
 /*
 #pragma mark - Navigation
 

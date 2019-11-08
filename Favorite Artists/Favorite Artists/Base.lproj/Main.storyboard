@@ -10,7 +10,7 @@
         <!--Artist Table View Controller-->
         <scene sceneID="W3J-g8-xrz">
             <objects>
-                <tableViewController id="90h-gJ-eX6" customClass="ArtistTableViewController" sceneMemberID="viewController">
+                <tableViewController id="90h-gJ-eX6" customClass="WCArtistTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="g0e-h0-PfJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                     <navigationItem key="navigationItem" id="DdA-ea-KQZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NpZ-jw-Jmk">
                             <connections>
-                                <segue destination="7zF-HO-1TU" kind="show" id="BjT-bs-xYe"/>
+                                <segue destination="7zF-HO-1TU" kind="show" identifier="addSegue" id="BjT-bs-xYe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -61,7 +61,7 @@
         <!--Artist Detail View Controller-->
         <scene sceneID="lPU-oZ-5bf">
             <objects>
-                <viewController id="7zF-HO-1TU" customClass="ArtistDetailViewController" sceneMemberID="viewController">
+                <viewController id="7zF-HO-1TU" customClass="WCArtistDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ucN-Xt-4re">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,6 +117,7 @@
                         <outlet property="albumYear" destination="pgI-dJ-uo5" id="a3V-kX-UTz"/>
                         <outlet property="artistHistoryTextField" destination="5Cp-cw-NzC" id="qfO-Dq-hf0"/>
                         <outlet property="artistNameLabel" destination="ooa-0i-4AI" id="hZi-08-bTE"/>
+                        <outlet property="searchBar" destination="PAf-oY-9CU" id="kOY-EX-8by"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lY1-tG-BBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

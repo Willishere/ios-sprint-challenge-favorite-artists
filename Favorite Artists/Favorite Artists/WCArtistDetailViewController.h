@@ -1,5 +1,5 @@
 //
-//  ArtistTableViewController.h
+//  ArtistDetailViewController.h
 //  Favorite Artists
 //
 //  Created by William Chen on 11/8/19.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ArtistTableViewController : UITableViewController
+@interface WCArtistDetailViewController : UIViewController
 
 @end
 
