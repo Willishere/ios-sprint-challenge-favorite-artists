@@ -17,13 +17,14 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property WCArtistController *controller;
-@property NSArray *artists;
+
 
 @end
 
 @implementation WCArtistDetailViewController
 
 
+    
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,6 +59,16 @@
 }
 */
 - (IBAction)saveButtonPressed:(id)sender {
+    NSString *title = self.artistNameLabel.text;
+    NSString *body = self.artistHistoryTextField.text;
+    NSString *year = self.albumYear.text;
+    
+//    if (!self.) {
+//        [self.documentController createDocWithTitle:title body:body];
+//    } else {
+//        [self.documentController updateDoc:self.document title:title body:body];
+//    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

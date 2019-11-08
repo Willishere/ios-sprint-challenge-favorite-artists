@@ -19,6 +19,8 @@
 
 @implementation WCArtistTableViewController
 
+
+
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
@@ -67,7 +69,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addSegue"]) {
        WCArtistDetailViewController *destinationVC = segue.destinationViewController;
-       destinationVC.
+        destinationVC.controller = self.controller;
+        destinationVC.artists = self.artists;
+        
     }
 }
 
