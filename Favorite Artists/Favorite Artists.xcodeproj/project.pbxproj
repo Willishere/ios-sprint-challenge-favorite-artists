@@ -14,9 +14,10 @@
 		9E2C12E82375C9B20083EF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2C12E72375C9B20083EF4E /* Assets.xcassets */; };
 		9E2C12EB2375C9B20083EF4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2C12E92375C9B20083EF4E /* LaunchScreen.storyboard */; };
 		9E2C12EE2375C9B20083EF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C12ED2375C9B20083EF4E /* main.m */; };
-		9E2C12F62375CA2F0083EF4E /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C12F52375CA2F0083EF4E /* Artist.m */; };
+		9E2C12F62375CA2F0083EF4E /* WCArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C12F52375CA2F0083EF4E /* WCArtist.m */; };
 		9E2C12F92375CCFA0083EF4E /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C12F82375CCFA0083EF4E /* ArtistTableViewController.m */; };
 		9E2C12FC2375CD1D0083EF4E /* ArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C12FB2375CD1D0083EF4E /* ArtistDetailViewController.m */; };
+		9E2C12FF2375D3A00083EF4E /* WCArtistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C12FE2375D3A00083EF4E /* WCArtistController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +33,14 @@
 		9E2C12EA2375C9B20083EF4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E2C12EC2375C9B20083EF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E2C12ED2375C9B20083EF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9E2C12F42375CA2F0083EF4E /* Artist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
-		9E2C12F52375CA2F0083EF4E /* Artist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
+		9E2C12F42375CA2F0083EF4E /* WCArtist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCArtist.h; sourceTree = "<group>"; };
+		9E2C12F52375CA2F0083EF4E /* WCArtist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCArtist.m; sourceTree = "<group>"; };
 		9E2C12F72375CCFA0083EF4E /* ArtistTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
 		9E2C12F82375CCFA0083EF4E /* ArtistTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 		9E2C12FA2375CD1D0083EF4E /* ArtistDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
 		9E2C12FB2375CD1D0083EF4E /* ArtistDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
+		9E2C12FD2375D3A00083EF4E /* WCArtistController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCArtistController.h; sourceTree = "<group>"; };
+		9E2C12FE2375D3A00083EF4E /* WCArtistController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCArtistController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +78,10 @@
 				9E2C12DE2375C9AE0083EF4E /* SceneDelegate.h */,
 				9E2C12DF2375C9AE0083EF4E /* SceneDelegate.m */,
 				9E2C12E12375C9AE0083EF4E /* ViewController.h */,
-				9E2C12F42375CA2F0083EF4E /* Artist.h */,
-				9E2C12F52375CA2F0083EF4E /* Artist.m */,
+				9E2C12F42375CA2F0083EF4E /* WCArtist.h */,
+				9E2C12F52375CA2F0083EF4E /* WCArtist.m */,
+				9E2C12FD2375D3A00083EF4E /* WCArtistController.h */,
+				9E2C12FE2375D3A00083EF4E /* WCArtistController.m */,
 				9E2C12E22375C9AE0083EF4E /* ViewController.m */,
 				9E2C12E42375C9AE0083EF4E /* Main.storyboard */,
 				9E2C12FA2375CD1D0083EF4E /* ArtistDetailViewController.h */,
@@ -161,13 +166,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2C12FF2375D3A00083EF4E /* WCArtistController.m in Sources */,
 				9E2C12E32375C9AE0083EF4E /* ViewController.m in Sources */,
 				9E2C12DD2375C9AE0083EF4E /* AppDelegate.m in Sources */,
 				9E2C12EE2375C9B20083EF4E /* main.m in Sources */,
 				9E2C12E02375C9AE0083EF4E /* SceneDelegate.m in Sources */,
 				9E2C12FC2375CD1D0083EF4E /* ArtistDetailViewController.m in Sources */,
 				9E2C12F92375CCFA0083EF4E /* ArtistTableViewController.m in Sources */,
-				9E2C12F62375CA2F0083EF4E /* Artist.m in Sources */,
+				9E2C12F62375CA2F0083EF4E /* WCArtist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

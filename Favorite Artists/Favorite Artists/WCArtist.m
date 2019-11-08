@@ -6,9 +6,9 @@
 //  Copyright © 2019 William Chen. All rights reserved.
 //
 
-#import "Artist.h"
+#import "WCArtist.h"
 
-@implementation Artist
+@implementation WCArtist
 
 - (instancetype) initWithstrArtist:(NSString *)strArtist intYearReleased:(NSString *)intYearReleased strDescriptionEN:(NSString *)strDescriptionEN{
     if (self = [super init]){
@@ -22,11 +22,11 @@
 }
 
 - (instancetype) initwithDictionary: (NSDictionary *)dictionary{
-    NSDictionary *artistDictionary = dictionary[@"strArtist"];
-    NSDictionary *yearReleased = dictionary[@"intYearReleased"];
-    NSDictionary *description = dictionary[@"strDescriptionEN"];
+    NSString *artist = dictionary[@"strArtist"];
+    NSString *yearReleased = dictionary[@"intYearReleased"];
+    NSString *description = dictionary[@"strDescriptionEN"];
     
-    return [self initWithstrArtist:artistDictionary intYearReleased:yearReleased strDescriptionEN:description];
+    return [self initWithstrArtist:artist intYearReleased:yearReleased strDescriptionEN:description];
 }
 
 @end

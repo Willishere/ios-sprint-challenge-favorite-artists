@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Artist : NSObject
+@interface WCArtist : NSObject
 @property NSString *strArtist;
 @property NSString *intYearReleased;
 @property NSString *strDescriptionEN;
